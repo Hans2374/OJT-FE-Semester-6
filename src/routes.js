@@ -13,7 +13,7 @@ const AppRoutes = () => {
         <Router>
             <Routes>
                 <Route path="/home" element={<HomePage />} />
-                <Route path="/" element={<LoginPage />} />
+                <Route path="/login" element={<LoginPage />} />
                 {/* Route cho trang không tồn tại */}
             </Routes>
         </Router>
