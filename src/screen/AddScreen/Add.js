@@ -1,17 +1,17 @@
 import React from 'react';
 import Header from '../../components/header/Header';
-import Login from '../../components/LoginPage/Login';
+import Add from '../../components/AddPage/add';
 import Footer from '../../components/footer/Footer';
+import './Add.css';
 
-
-function LoginPage() {
+function AddPage() {
   return (
-    <div className="login">
+    <div className="add">
       
-      <Login/>
+      <Add />
       
     </div>
   );
 }
 
-export default LoginPage;
+export default AddPage;
