@@ -6,6 +6,7 @@ const HomePage = () => {
     { id: 1, title: 'What happens if we don’t finish?' },
     { id: 2, title: 'How long do we have for the test?' },
     { id: 3, title: 'Can you explain sexual and asexual reproduction?' },
+    {id:4, title: 'Deadline?'},
     // Thêm các câu hỏi khác ở đây
   ]);
 
