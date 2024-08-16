@@ -1,11 +1,11 @@
 // LoginPage.js
 import React from 'react';
+import Header from '../../components/header/Header';
+
 
 const LoginPage = () => {
-  return (
-    <div>
-      <h1>Login Page</h1>
-    </div>
+  return (   
+    <Header/>
   );
 };
 
