@@ -13,14 +13,28 @@ const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [currentQuestionId, setCurrentQuestionId] = useState(null);
   const dropdownRef = useRef(null);
 
   const handleUpdate = (id) => {
+    const questionToUpdate = questions.find(q => q.id === id);
+    setCurrentQuestionId(id);
     setPopupContent(
       <div className="popup">
         <h2>Update Question</h2>
-        <input type="text" defaultValue={questions.find(q => q.id === id).title} />
-        <button onClick={() => setShowPopup(false)}>Save</button>
+        <input
+          type="text"
+          defaultValue={questionToUpdate.title}
+          onChange={(e) => questionToUpdate.title = e.target.value}
+        />
+        <button onClick={() => {
+          setQuestions(
+            questions.map(q =>
+              q.id === id ? { ...q, title: questionToUpdate.title } : q
+            )
+          );
+          setShowPopup(false);
+        }}>Save</button>
         <button onClick={() => setShowPopup(false)}>Cancel</button>
       </div>
     );
