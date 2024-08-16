@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // Import các component mà bạn muốn điều hướng tới
 import HomePage from './screen/HomeScreen/Home';
 import LoginPage from './screen/LoginScreen/Login';
-import AddPage from './screen/AddScreen/Add';
+import Login from './components/LoginPage/Login';
 
 
 // Định nghĩa các route trong ứng dụng
@@ -14,9 +14,7 @@ const AppRoutes = () => {
         <Router>
             <Routes>
                 <Route path="/home" element={<HomePage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/" element={<LoginPage />} />
-                <Route path="/add" element={<AddPage />} />
+                <Route path="/" element={<Login />} />
                 {/* Route cho trang không tồn tại */}
             </Routes>
         </Router>
