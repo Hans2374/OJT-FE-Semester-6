@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "antd": "^5.20.1",
     "prettier": "^3.3.3"
   }
 }
