@@ -6,7 +6,7 @@ const HomePage = () => {
     { id: 1, title: 'What happens if we don’t finish?' },
     { id: 2, title: 'How long do we have for the test?' },
     { id: 3, title: 'Can you explain sexual and asexual reproduction?' },
-    {id:4, title: 'Deadline?'},
+    { id: 4, title: 'Deadline?' },
     // Thêm các câu hỏi khác ở đây
   ]);
 
@@ -31,8 +31,8 @@ const HomePage = () => {
     setPopupContent(
       <div className="popup">
         <h2>Do you want to delete this question?</h2>
-        <button 
-          className="delete-button" 
+        <button
+          className="delete-button"
           onClick={() => {
             setQuestions(questions.filter(q => q.id !== id));
             setShowPopup(false);
