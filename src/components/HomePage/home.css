@@ -118,3 +118,18 @@
 .delete-button:hover {
   background-color: #d9363e;
 }
+
+.add-question-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-question-button:hover {
+  background-color: #0056b3;
+}
