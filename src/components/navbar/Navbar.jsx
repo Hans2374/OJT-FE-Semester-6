@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Navbar.css";
 import logo from "../../assets/0ff12dfae735436b1a24.jpg";
 import { getTopNav } from "../../data/navbars";
+import Logout from "../LoginPage/Logout";
 
 const Navbar = () => {
   const [navItems, setNavItems] = useState([]);
