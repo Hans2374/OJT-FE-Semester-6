@@ -1,23 +1,41 @@
 // LoginPage.js
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { login } from "../../features/userSlice";
 
 const Login = () => {
+  const [username,setUsername] = useState("");
+  const [password,setPassword] = useState("");
+
+  const dispacth = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispacth(
+      login({
+      name:username,
+      password:password,
+      loggedIn: true,
+      })
+    );
+  };
+
   return (
     <div className="wrapper">
-      <form className="form-group custom-form">
+      <form className="form-group custom-form" onSubmit={(e) => handleSubmit(e)}>
         <h1>Login</h1>
         <div className="input-box">
-          <input type="email" required placeholder="Username or Email" />
+          <input value={username} onChange={(e) => setUsername(e.target.value)} type="name" required placeholder="Username" />
         </div>
 
         <div className="input-box">
-          <input type="password" required placeholder="Password" />
+          <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required placeholder="Password" />
         </div>
 
-        <button type="submit" className="btn btn-success btn-md">
-          LOGIN
-        </button>
+        <button type="submit" className="btn btn-primary">LOGIN</button>
       </form>
     </div>
   );

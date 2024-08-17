@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useForm } from 'react-hook-form';
 import './home.css';
 
 const HomePage = () => {
@@ -7,7 +8,6 @@ const HomePage = () => {
     { id: 2, title: 'How long do we have for the test?' },
     { id: 3, title: 'Can you explain sexual and asexual reproduction?' },
     { id: 4, title: 'Deadline?' },
-    // Thêm các câu hỏi khác ở đây
   ]);
 
   const [showPopup, setShowPopup] = useState(false);
@@ -15,13 +15,29 @@ const HomePage = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const dropdownRef = useRef(null);
 
+  const { register, handleSubmit, reset, setValue } = useForm();
+
   const handleUpdate = (id) => {
+    const questionToUpdate = questions.find(q => q.id === id);
+    setValue('questionTitle', questionToUpdate.title); // Set the initial value for the form
     setPopupContent(
       <div className="popup">
         <h2>Update Question</h2>
-        <input type="text" defaultValue={questions.find(q => q.id === id).title} />
-        <button onClick={() => setShowPopup(false)}>Save</button>
-        <button onClick={() => setShowPopup(false)}>Cancel</button>
+        <form onSubmit={handleSubmit((data) => {
+          setQuestions(
+            questions.map(q =>
+              q.id === id ? { ...q, title: data.questionTitle } : q
+            )
+          );
+          setShowPopup(false);
+        })}>
+          <input 
+            type="text" 
+            {...register('questionTitle', { required: true })}
+          />
+          <button type="submit">Save</button>
+          <button onClick={() => setShowPopup(false)}>Cancel</button>
+        </form>
       </div>
     );
     setShowPopup(true);
@@ -41,6 +57,33 @@ const HomePage = () => {
           Delete
         </button>
         <button onClick={() => setShowPopup(false)}>Cancel</button>
+      </div>
+    );
+    setShowPopup(true);
+  };
+
+  const handleAddQuestion = () => {
+    setPopupContent(
+      <div className="popup">
+        <h2>Add a New Question</h2>
+        <form onSubmit={handleSubmit((data) => {
+          if (data.newQuestionTitle.trim() !== '') {
+            const newQuestion = { id: questions.length + 1, title: data.newQuestionTitle };
+            setQuestions([...questions, newQuestion]);
+            setShowPopup(false);
+            reset(); // Reset the form after adding
+          } else {
+            alert('Question cannot be empty');
+          }
+        })}>
+          <input 
+            type="text" 
+            placeholder="Enter your question" 
+            {...register('newQuestionTitle', { required: true })}
+          />
+          <button type="submit">Save</button>
+          <button onClick={() => setShowPopup(false)}>Cancel</button>
+        </form>
       </div>
     );
     setShowPopup(true);
@@ -79,6 +122,9 @@ const HomePage = () => {
   return (
     <div className="container">
       <h1>Questions for the group?</h1>
+      <button className="add-question-button" onClick={handleAddQuestion}>
+        Have a question?
+      </button>
       <div className="question-grid">
         {questions.map((question) => (
           <div className="question-card" key={question.id} style={{ backgroundColor: getRandomColor() }}>
