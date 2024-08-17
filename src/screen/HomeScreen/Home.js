@@ -9,8 +9,8 @@ function HomePage() {
   return (
     <div className="home">
       <Header />
-      <Home />
       <Footer />
+      <Home />
     </div>
   );
 }
