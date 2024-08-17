@@ -4,10 +4,14 @@ import './home.css';
 
 const HomePage = () => {
   const [questions, setQuestions] = useState([
-    { id: 1, title: 'What happens if we don’t finish?' },
+    { id: 1, title: 'What happens if we dont finish?' },
     { id: 2, title: 'How long do we have for the test?' },
     { id: 3, title: 'Can you explain sexual and asexual reproduction?' },
     { id: 4, title: 'Deadline?' },
+    { id: 5, title: 'Can you provide feedback on my recent performance?' },
+    { id: 6, title: 'Are there any opportunities for me to take on more responsibilities?' },
+    { id: 7, title: 'How will the recent changes impact my daily work?' },
+    { id: 8, title: 'What steps can I take to advance my career here?' },
   ]);
 
   const [showPopup, setShowPopup] = useState(false);
@@ -17,9 +21,29 @@ const HomePage = () => {
 
   const { register, handleSubmit, reset, setValue } = useForm();
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const questionsPerPage = 4;
+
+  const indexOfLastQuestion = currentPage * questionsPerPage;
+  const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
+  const currentQuestions = questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
+
+  const paginate = (pageNumber) => {
+    const grid = document.querySelector('.question-grid');
+    // Xóa lớp fade-in trước khi thêm fade-out
+    grid.classList.remove('fade-in'); 
+    grid.classList.add('fade-out');
+
+    setTimeout(() => {
+      setCurrentPage(pageNumber);
+      grid.classList.remove('fade-out'); // Xóa lớp fade-out
+      grid.classList.add('fade-in'); // Thêm lớp fade-in
+    }, 300); 
+  };
+
   const handleUpdate = (id) => {
     const questionToUpdate = questions.find(q => q.id === id);
-    setValue('questionTitle', questionToUpdate.title); // Set the initial value for the form
+    setValue('questionTitle', questionToUpdate.title); 
     setPopupContent(
       <div className="popup">
         <h2>Update Question</h2>
@@ -71,7 +95,7 @@ const HomePage = () => {
             const newQuestion = { id: questions.length + 1, title: data.newQuestionTitle };
             setQuestions([...questions, newQuestion]);
             setShowPopup(false);
-            reset(); // Reset the form after adding
+            reset(); 
           } else {
             alert('Question cannot be empty');
           }
@@ -103,15 +127,6 @@ const HomePage = () => {
     }
   };
 
-  const getRandomColor = () => {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
-
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true);
     return () => {
@@ -121,13 +136,15 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <h1>Questions for the group?</h1>
-      <button className="add-question-button" onClick={handleAddQuestion}>
-        Have a question?
-      </button>
+      <div className="header">
+        <h1>Questions for the group?</h1>
+        <button className="add-question-button" onClick={handleAddQuestion}>
+          Have a question?
+        </button>
+      </div>
       <div className="question-grid">
-        {questions.map((question) => (
-          <div className="question-card" key={question.id} style={{ backgroundColor: getRandomColor() }}>
+        {currentQuestions.map((question) => (
+          <div className="question-card" key={question.id} style={{ backgroundColor: '#F08080' }}>
             <div className="card-content" ref={dropdownRef}>
               <p>{question.title}</p>
               <div className={`dropdown ${activeDropdown === question.id ? 'active' : ''}`}>
@@ -141,6 +158,15 @@ const HomePage = () => {
           </div>
         ))}
       </div>
+
+      <div className="pagination">
+        {Array.from({ length: Math.ceil(questions.length / questionsPerPage) }, (_, index) => (
+          <button key={index + 1} onClick={() => paginate(index + 1)}>
+            {index + 1}
+          </button>
+        ))}
+      </div>
+
       {showPopup && <div className="overlay">{popupContent}</div>}
     </div>
   );
