@@ -2,6 +2,10 @@
   padding: 20px;
 }
 
+.container h1 {
+  color: #268fff;
+}
+
 .question-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -86,14 +90,15 @@
 }
 
 .popup input {
-  width: 80%;
+  width: 90%;
   padding: 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .popup button {
   padding: 10px 20px;
-  margin: 5px;
+  margin: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -107,6 +112,7 @@
 .delete-button {
   background-color: #ff4d4f;
   color: white;
+  margin-top: 20px;
 }
 
 .delete-button:hover {
