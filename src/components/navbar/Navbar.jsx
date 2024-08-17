@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css";
-import logo from "../../assets/0ff12dfae735436b1a24.jpg";
+import logo from "../../assets/0ff12dfae735436b1a24.png";
 import { getTopNav } from "../../data/navbars";
 
 const Navbar = () => {
