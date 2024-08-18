@@ -1,9 +1,9 @@
 import React from "react";
 import "./Footer.css";
-import fb from "../../assets/sm_5aff6081b74c8.jpg";
-import twitter from "../../assets/png-clipart-computer-icons-logo-twitter-icon-logo-computer-wallpaper-thumbnail.png";
-import github from "../../assets/png-clipart-computer-icons-logo-github-github-logo-logo-computer-program.png";
-import igs from "../../assets/png-clipart-instagram-logo-logo-sticker-decal-instagram-miscellaneous-text.png";
+import fb from "../../assets/facebook.png";
+import twitter from "../../assets/twitter.png";
+import github from "../../assets/github.png";
+import igs from "../../assets/instagram.png";
 
 function Footer() {
   return (

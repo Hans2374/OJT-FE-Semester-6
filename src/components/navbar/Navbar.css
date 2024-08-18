@@ -1,24 +1,4 @@
-a {
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
-}
-
-.container {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media screen and (max-width: 930px) {
-  .container {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
+/* Header (Nav) */
 .nav__wrapper {
   position: fixed;
   top: 0;
@@ -26,9 +6,9 @@ li {
   width: 100%;
   box-sizing: border-box;
   z-index: 1000;
-  padding: 10px 20px;
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.3);
+  padding: 10px 20px; /* Tăng padding để tạo không gian */
+  backdrop-filter: blur(10px); /* Giữ độ mờ */
+  background-color: rgba(255, 255, 255, 0.3); /* Giữ độ trong suốt */
   -webkit-backdrop-filter: blur(10px);
 }
 
@@ -36,19 +16,28 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 10vh;
+  height: 60px; /* Điều chỉnh chiều cao của navbar */
 }
 
 .nav__menu {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  gap: 1.5rem;
+  justify-content: space-between; /* Thay đổi cách căn chỉnh để cân đối */
+  gap: 1.5rem; /* Khoảng cách giữa các liên kết */
+  margin: 0;
+  padding: 0;
 }
 
 .nav__link {
   color: #181a1e;
   font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem; /* Kích thước font cân đối */
+}
+
+/* Loại bỏ dấu chấm cho các liên kết */
+.nav__menu li {
+  list-style: none;
 }
 
 .toggler__icon {
@@ -57,12 +46,13 @@ li {
 }
 
 .toggler__icon div {
-  width: 25px;
-  height: 2px;
+  width: 30px; /* Kích thước của biểu tượng menu */
+  height: 3px;
   background: #302d2d;
-  margin: 5px 0px;
+  margin: 6px 0;
   transition: 0.3s ease;
 }
+
 @media screen and (max-width: 768px) {
   .toggler__icon {
     display: block;
@@ -70,17 +60,22 @@ li {
 
   .nav__menu {
     position: fixed;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Giữ độ mờ */
     -webkit-backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3); /* Giữ độ trong suốt */
     z-index: 1001;
     flex-direction: column;
-    top: 16.5vh;
-    width: 30%;
-    height: 62vh;
+    top: 0; /* Đặt menu từ trên cùng */
+    width: 100%; /* Chiều rộng menu trên thiết bị di động */
+    height: 100%; /* Chiều cao menu trên thiết bị di động */
     right: 0;
     transform: translateX(100%);
     transition: 0.5s ease;
+    padding: 20px; /* Padding thêm cho menu di động */
+  }
+
+  .nav__menu.active {
+    transform: translateX(0); /* Hiển thị menu khi kích hoạt */
   }
 }
 
@@ -89,7 +84,7 @@ li {
 }
 
 .toggle .line__1 {
-  transform: translate(-5px, 7px) rotate(-45deg);
+  transform: translateY(7px) rotate(-45deg);
   transition: 0.5s ease;
 }
 
@@ -99,6 +94,8 @@ li {
 }
 
 .toggle .line__3 {
-  transform: translate(-5px, -7px) rotate(45deg);
+  transform: translateY(-7px) rotate(45deg);
   transition: 0.5s ease;
 }
+
+

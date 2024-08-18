@@ -18,6 +18,7 @@ const HomePage = () => {
   const [popupContent, setPopupContent] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const dropdownRef = useRef(null);
+  const [headerFadeClass, setHeaderFadeClass] = useState('fade-in');
 
   const { register, handleSubmit, reset, setValue } = useForm();
 
@@ -34,10 +35,12 @@ const HomePage = () => {
     grid.classList.remove('fade-in'); 
     grid.classList.add('fade-out');
 
+    setHeaderFadeClass('fade-out');
     setTimeout(() => {
       setCurrentPage(pageNumber);
       grid.classList.remove('fade-out'); // Xóa lớp fade-out
       grid.classList.add('fade-in'); // Thêm lớp fade-in
+      setHeaderFadeClass('fade-in');
     }, 300); 
   };
 
@@ -136,7 +139,7 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <div className="header">
+      <div className={`header ${headerFadeClass}`}>
         <h1>Questions for the group?</h1>
         <button className="add-question-button" onClick={handleAddQuestion}>
           Have a question?
