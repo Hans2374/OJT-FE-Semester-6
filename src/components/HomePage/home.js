@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import './home.css';
+import ReactPaginate from 'react-paginate'; // Import the React Paginate library
+import './home.css'; // Import your CSS file for styling
 
 const HomePage = () => {
   const [questions, setQuestions] = useState([
@@ -28,13 +29,15 @@ const HomePage = () => {
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
   const currentQuestions = questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
 
-  const paginate = (pageNumber) => {
+  const totalPages = Math.ceil(questions.length / questionsPerPage);
+
+  const handlePageClick = (event) => {
     const grid = document.querySelector('.question-grid');
     grid.classList.remove('fade-in');
     grid.classList.add('fade-out');
 
     setTimeout(() => {
-      setCurrentPage(pageNumber);
+      setCurrentPage(event.selected + 1);
       grid.classList.remove('fade-out');
       grid.classList.add('fade-in');
     }, 300);
@@ -163,7 +166,7 @@ const HomePage = () => {
           Have a question?
         </button>
       </div>
-      <div className="question-grid">
+      <div className="question-grid fade-in">
         {currentQuestions.map((question) => (
           <div className="question-card" key={question.id} style={{ backgroundColor: '#F08080' }}>
             <div className="card-content" ref={dropdownRef}>
@@ -181,18 +184,20 @@ const HomePage = () => {
         ))}
       </div>
 
-      <div className="pagination">
-        {Array.from({ length: Math.ceil(questions.length / questionsPerPage) }, (_, index) => (
-          <button
-            key={index + 1}
-            onClick={() => paginate(index + 1)}
-            className={currentPage === index + 1 ? 'active' : ''}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
+      {/* React Paginate component */}
+      <ReactPaginate
+        previousLabel={'<'}
+        nextLabel={'>'}
+        breakLabel={'...'}
+        pageCount={totalPages}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={2}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination'}
+        activeClassName={'active'}
+      />
 
+      {/* Popup for replies, update, delete, etc. */}
       {showPopup && <div className="overlay">{popupContent}</div>}
     </div>
   );
