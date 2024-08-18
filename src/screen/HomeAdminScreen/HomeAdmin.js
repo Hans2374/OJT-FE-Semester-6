@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../../components/header/Header";
-import Home from "../../components/HomePage/home";
+import Home from "../../components/HomeAdmin/HomeAdmin";
 import Footer from "../../components/footer/Footer";
 
-import "./Home.css";
+import "./HomeAdmin.css";
 
 function HomePage() {
   return (

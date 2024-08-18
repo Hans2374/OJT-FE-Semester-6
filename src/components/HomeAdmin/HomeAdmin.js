@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import './home.css';
+import './HomeAdmin.css';
 
-const HomePage = () => {
+const AdminHomePage = () => {
   const [questions, setQuestions] = useState([
-    { id: 1, title: 'What happens if we dont finish?', replies: [] },
+    { id: 1, title: 'What happens if we don’t finish?', replies: [] },
     { id: 2, title: 'How long do we have for the test?', replies: [] },
     { id: 3, title: 'Can you explain sexual and asexual reproduction?', replies: [] },
     { id: 4, title: 'Deadline?', replies: [] },
@@ -40,6 +40,87 @@ const HomePage = () => {
     }, 300);
   };
 
+  const handleReply = (id) => {
+    const questionToReply = questions.find(q => q.id === id);
+    setValue('replyContent', '');
+    setPopupContent(
+      <div className="popup">
+        <h2>{questionToReply.title}</h2>
+        <form onSubmit={handleSubmit((data) => {
+          const updatedQuestions = questions.map(q => {
+            if (q.id === id) {
+              return { ...q, replies: [...q.replies, data.replyContent] };
+            }
+            return q;
+          });
+          setQuestions(updatedQuestions);
+          setShowPopup(false);
+        })}>
+          <textarea
+            {...register('replyContent', { required: true })}
+            placeholder="Enter your reply"
+          ></textarea>
+          <button type="submit">Post Reply</button>
+          <button type="button" onClick={() => setShowPopup(false)}>Cancel</button>
+        </form>
+      </div>
+    );
+    setShowPopup(true);
+  };
+
+  const handleEditReply = (questionId, replyIndex) => {
+    const questionToEdit = questions.find(q => q.id === questionId);
+    const replyToEdit = questionToEdit.replies[replyIndex];
+    
+    setPopupContent(
+      <div className="popup">
+        <h2>Edit Reply</h2>
+        <form onSubmit={handleSubmit((data) => {
+          const updatedQuestions = questions.map(q => {
+            if (q.id === questionId) {
+              const updatedReplies = [...q.replies];
+              updatedReplies[replyIndex] = data.editedReply;
+              return { ...q, replies: updatedReplies };
+            }
+            return q;
+          });
+          setQuestions(updatedQuestions);
+          setShowPopup(false);
+        })}>
+          <textarea
+            {...register('editedReply', { required: true })}
+            defaultValue={replyToEdit}
+          ></textarea>
+          <button type="submit">Save Changes</button>
+          <button type="button" onClick={() => setShowPopup(false)}>Cancel</button>
+        </form>
+      </div>
+    );
+    setShowPopup(true);
+  };
+  
+  const handleDeleteReply = (questionId, replyIndex) => {
+    setPopupContent(
+      <div className="popup">
+        <h2>Delete Reply</h2>
+        <p>Are you sure you want to delete this reply?</p>
+        <button onClick={() => {
+          const updatedQuestions = questions.map(q => {
+            if (q.id === questionId) {
+              const updatedReplies = q.replies.filter((_, index) => index !== replyIndex);
+              return { ...q, replies: updatedReplies };
+            }
+            return q;
+          });
+          setQuestions(updatedQuestions);
+          setShowPopup(false);
+        }}>Delete</button>
+        <button onClick={() => setShowPopup(false)}>Cancel</button>
+      </div>
+    );
+    setShowPopup(true);
+  };
+
   const handleSeeReply = (id) => {
     const questionToSeeReply = questions.find(q => q.id === id);
     setPopupContent(
@@ -50,6 +131,10 @@ const HomePage = () => {
             {questionToSeeReply.replies.map((reply, index) => (
               <div key={index} className="reply-row">
                 <p>{reply}</p>
+                <div className="reply-actions">
+                  <button onClick={() => handleEditReply(id, index)}>Edit</button>
+                  <button onClick={() => handleDeleteReply(id, index)}>Delete</button>
+                </div>
               </div>
             ))}
           </div>
@@ -57,32 +142,6 @@ const HomePage = () => {
           <p>There are no replies yet.</p>
         )}
         <button onClick={() => setShowPopup(false)}>Close</button>
-      </div>
-    );
-    setShowPopup(true);
-  };
-
-  const handleUpdate = (id) => {
-    const questionToUpdate = questions.find(q => q.id === id);
-    setValue('questionTitle', questionToUpdate.title);
-    setPopupContent(
-      <div className="popup">
-        <h2>Update Question</h2>
-        <form onSubmit={handleSubmit((data) => {
-          setQuestions(
-            questions.map(q =>
-              q.id === id ? { ...q, title: data.questionTitle } : q
-            )
-          );
-          setShowPopup(false);
-        })}>
-          <input
-            type="text"
-            {...register('questionTitle', { required: true })}
-          />
-          <button type="submit">Save</button>
-          <button onClick={() => setShowPopup(false)}>Cancel</button>
-        </form>
       </div>
     );
     setShowPopup(true);
@@ -102,33 +161,6 @@ const HomePage = () => {
           Delete
         </button>
         <button onClick={() => setShowPopup(false)}>Cancel</button>
-      </div>
-    );
-    setShowPopup(true);
-  };
-
-  const handleAddQuestion = () => {
-    setPopupContent(
-      <div className="popup">
-        <h2>Add a New Question</h2>
-        <form onSubmit={handleSubmit((data) => {
-          if (data.newQuestionTitle.trim() !== '') {
-            const newQuestion = { id: questions.length + 1, title: data.newQuestionTitle };
-            setQuestions([...questions, newQuestion]);
-            setShowPopup(false);
-            reset();
-          } else {
-            alert('Question cannot be empty');
-          }
-        })}>
-          <input
-            type="text"
-            placeholder="Enter your question"
-            {...register('newQuestionTitle', { required: true })}
-          />
-          <button type="submit">Save</button>
-          <button onClick={() => setShowPopup(false)}>Cancel</button>
-        </form>
       </div>
     );
     setShowPopup(true);
@@ -158,21 +190,18 @@ const HomePage = () => {
   return (
     <div className="container">
       <div className="header">
-        <h1>Questions for the group?</h1>
-        <button className="add-question-button" onClick={handleAddQuestion}>
-          Have a question?
-        </button>
+        <h1>Questions Admin Panel</h1>
       </div>
       <div className="question-grid">
         {currentQuestions.map((question) => (
-          <div className="question-card" key={question.id} style={{ backgroundColor: '#F08080' }}>
+          <div className="question-card" key={question.id}>
             <div className="card-content" ref={dropdownRef}>
               <p>{question.title}</p>
               <div className={`dropdown ${activeDropdown === question.id ? 'active' : ''}`}>
                 <button onClick={() => toggleDropdown(question.id)}>...</button>
                 <div className="dropdown-content">
+                  <button onClick={() => handleReply(question.id)}>Reply</button>
                   <button onClick={() => handleSeeReply(question.id)}>See Reply</button>
-                  <button onClick={() => handleUpdate(question.id)}>Update</button>
                   <button onClick={() => handleDelete(question.id)}>Delete</button>
                 </div>
               </div>
@@ -198,4 +227,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default AdminHomePage;
