@@ -97,5 +97,14 @@
   transform: translateY(-7px) rotate(45deg);
   transition: 0.5s ease;
 }
+.logout-button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  padding: 0;
+}
 
-
+.logout-button:hover {
+  background-color: transparent;
+  color: #c1ce66;
+}

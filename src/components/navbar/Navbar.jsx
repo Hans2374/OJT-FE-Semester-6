@@ -2,12 +2,16 @@ import { useState, useEffect } from "react";
 import "./Navbar.css";
 import logo from "../../assets/0ff12dfae735436b1a24.png";
 import { getTopNav } from "../../data/navbars";
-import Logout from "../LoginPage/Logout";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../../features/userSlice"; // Chỉnh lại đường dẫn tùy vào cấu trúc thư mục của bạn
 
 const Navbar = () => {
   const [navItems, setNavItems] = useState([]);
   const [collapse, setCollapse] = useState("nav__menu");
   const [toggleIcon, setToggleIcon] = useState("toggler__icon");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setNavItems(getTopNav());
@@ -24,19 +28,36 @@ const Navbar = () => {
       : setToggleIcon("toggler__icon");
   };
 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    dispatch(logout()); // Thực hiện hành động logout
+    navigate("/"); // Điều hướng về trang login sau khi logout
+  };
+
   return (
     <div className="nav__wrapper">
       <div className="container">
         <nav className="nav">
-          <img src={logo} alt="" />
+          <img src={logo} alt="Logo" />
           <ul className={collapse}>
-            {navItems.map((item) => (
-              <li key={item.id} className="nav__item">
-                <a href={item.href} className="nav__link">
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {navItems.map((item) =>
+              item.label === "Logout" ? (
+                <li key={item.id} className="nav__item">
+                  <button
+                    className="nav__link logout-button"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </li>
+              ) : (
+                <li key={item.id} className="nav__item">
+                  <Link to={item.href} className="nav__link">
+                    {item.label}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
           <div className={toggleIcon} onClick={onToggle}>
             <div className="line__1"></div>
