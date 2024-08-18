@@ -36,22 +36,19 @@ function Footer() {
           </div>
           <div className="sb__footer-links-div">
             <h4>Partner</h4>
-            <a href="/member">
+            <a href="https://amazingtech.vn/">
               <p>Amazing Tech</p>
             </a>
           </div>
           <div className="sb__footer-links-div">
             <h4>Company</h4>
-            <a href="/about">
+            <a href="https://amazingtech.vn/about-us">
               <p>About</p>
             </a>
-            <a href="/press">
-              <p>Press</p>
-            </a>
-            <a href="/career">
+            <a href="https://amazingtech.vn/career">
               <p>Career</p>
             </a>
-            <a href="/contact">
+            <a href="https://amazingtech.vn/contact-us">
               <p>Contact</p>
             </a>
           </div>
