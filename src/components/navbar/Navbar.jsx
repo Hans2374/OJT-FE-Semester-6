@@ -3,8 +3,8 @@ import "./Navbar.css";
 import logo from "../../assets/0ff12dfae735436b1a24.png";
 import { getTopNav } from "../../data/navbars";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { logout } from "../../features/userSlice"; // Chỉnh lại đường dẫn tùy vào cấu trúc thư mục của bạn
+import { useDispatch, useSelector } from "react-redux";
+import { logout,selectUser } from "../../features/userSlice"; // Chỉnh lại đường dẫn tùy vào cấu trúc thư mục của bạn
 
 const Navbar = () => {
   const [navItems, setNavItems] = useState([]);
@@ -12,6 +12,7 @@ const Navbar = () => {
   const [toggleIcon, setToggleIcon] = useState("toggler__icon");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     setNavItems(getTopNav());
@@ -39,6 +40,7 @@ const Navbar = () => {
       <div className="container">
         <nav className="nav">
           <img src={logo} alt="Logo" />
+          <h1>Welcome <span>{user.name}</span></h1>
           <ul className={collapse}>
             {navItems.map((item) =>
               item.label === "Logout" ? (
@@ -59,6 +61,7 @@ const Navbar = () => {
               )
             )}
           </ul>
+          
           <div className={toggleIcon} onClick={onToggle}>
             <div className="line__1"></div>
             <div className="line__2"></div>

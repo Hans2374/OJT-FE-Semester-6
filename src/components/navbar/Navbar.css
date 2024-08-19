@@ -1,4 +1,8 @@
 /* Header (Nav) */
+h1 span{
+  color: orange;
+}
+
 .nav__wrapper {
   position: fixed;
   top: 0;
