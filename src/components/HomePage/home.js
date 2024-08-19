@@ -1,19 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import ReactPaginate from 'react-paginate'; // Import the React Paginate library
-import './home.css'; // Import your CSS file for styling
+import ReactPaginate from 'react-paginate';
+import './home.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectQuestions, addQuestion, updateQuestion, deleteQuestion } from '../../features/questionSlice';
 
 const HomePage = () => {
-  const [questions, setQuestions] = useState([
-    { id: 1, title: 'What happens if we dont finish?', replies: [] },
-    { id: 2, title: 'How long do we have for the test?', replies: [] },
-    { id: 3, title: 'Can you explain sexual and asexual reproduction?', replies: [] },
-    { id: 4, title: 'Deadline?', replies: [] },
-    { id: 5, title: 'Can you provide feedback on my recent performance?', replies: [] },
-    { id: 6, title: 'Are there any opportunities for me to take on more responsibilities?', replies: [] },
-    { id: 7, title: 'How will the recent changes impact my daily work?', replies: [] },
-    { id: 8, title: 'What steps can I take to advance my career here?', replies: [] },
-  ]);
+  const questions = useSelector(selectQuestions);
+  console.log('Questions in HomePage:', questions);
+  const dispatch = useDispatch();
 
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
@@ -22,10 +17,10 @@ const HomePage = () => {
 
   const { register, handleSubmit, reset, setValue } = useForm();
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const questionsPerPage = 4;
 
-  const indexOfLastQuestion = currentPage * questionsPerPage;
+  const indexOfLastQuestion = (currentPage + 1) * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
   const currentQuestions = questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
 
@@ -37,7 +32,7 @@ const HomePage = () => {
     grid.classList.add('fade-out');
 
     setTimeout(() => {
-      setCurrentPage(event.selected + 1);
+      setCurrentPage(event.selected);
       grid.classList.remove('fade-out');
       grid.classList.add('fade-in');
     }, 300);
@@ -72,11 +67,7 @@ const HomePage = () => {
       <div className="popup">
         <h2>Update Question</h2>
         <form onSubmit={handleSubmit((data) => {
-          setQuestions(
-            questions.map(q =>
-              q.id === id ? { ...q, title: data.questionTitle } : q
-            )
-          );
+          dispatch(updateQuestion({ ...questionToUpdate, title: data.questionTitle }));
           setShowPopup(false);
         })}>
           <input
@@ -98,7 +89,7 @@ const HomePage = () => {
         <button
           className="delete-button"
           onClick={() => {
-            setQuestions(questions.filter(q => q.id !== id));
+            dispatch(deleteQuestion(id));
             setShowPopup(false);
           }}
         >
@@ -116,8 +107,8 @@ const HomePage = () => {
         <h2>Add a New Question</h2>
         <form onSubmit={handleSubmit((data) => {
           if (data.newQuestionTitle.trim() !== '') {
-            const newQuestion = { id: questions.length + 1, title: data.newQuestionTitle };
-            setQuestions([...questions, newQuestion]);
+            const newQuestion = { id: Date.now(), title: data.newQuestionTitle, replies: [] };
+            dispatch(addQuestion(newQuestion));
             setShowPopup(false);
             reset();
           } else {
@@ -184,7 +175,6 @@ const HomePage = () => {
         ))}
       </div>
 
-      {/* React Paginate component */}
       <ReactPaginate
         previousLabel={'<'}
         nextLabel={'>'}
@@ -197,7 +187,6 @@ const HomePage = () => {
         activeClassName={'active'}
       />
 
-      {/* Popup for replies, update, delete, etc. */}
       {showPopup && <div className="overlay">{popupContent}</div>}
     </div>
   );
