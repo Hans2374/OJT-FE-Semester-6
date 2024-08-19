@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import ReactPaginate from 'react-paginate'; // Import the React Paginate library
 import './home.css'; // Import your CSS file for styling
+import { useSelector } from 'react-redux';
 
 const HomePage = () => {
   const [questions, setQuestions] = useState([
@@ -14,6 +15,8 @@ const HomePage = () => {
     { id: 7, title: 'How will the recent changes impact my daily work?', replies: [] },
     { id: 8, title: 'What steps can I take to advance my career here?', replies: [] },
   ]);
+
+  const userState = useSelector((state)=> state.user.user)
 
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
@@ -30,6 +33,8 @@ const HomePage = () => {
   const currentQuestions = questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
 
   const totalPages = Math.ceil(questions.length / questionsPerPage);
+
+  console.log("AAA", userState)
 
   const handlePageClick = (event) => {
     const grid = document.querySelector('.question-grid');
