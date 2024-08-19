@@ -170,15 +170,19 @@ const AdminHomePage = () => {
       </div>
       <div className="question-grid">
         {currentQuestions.map((question) => (
-          <div className="question-card" key={question.id}>
+          <div
+            className="question-card"
+            key={question.id}
+            onClick={() => handleSeeReply(question.id)}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="card-content" ref={dropdownRef}>
               <p>{question.title}</p>
               <div className={`dropdown ${activeDropdown === question.id ? 'active' : ''}`}>
-                <button onClick={() => toggleDropdown(question.id)}>...</button>
+                <button onClick={(e) => { e.stopPropagation(); toggleDropdown(question.id); }}>...</button>
                 <div className="dropdown-content">
-                  <button onClick={() => handleReply(question.id)}>Reply</button>
-                  <button onClick={() => handleSeeReply(question.id)}>See Reply</button>
-                  <button onClick={() => handleDelete(question.id)}>Delete</button>
+                  <button onClick={(e) => { e.stopPropagation(); handleReply(question.id); }}>Reply</button>
+                  <button onClick={(e) => { e.stopPropagation(); handleDelete(question.id); }}>Delete</button>
                 </div>
               </div>
             </div>

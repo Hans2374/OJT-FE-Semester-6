@@ -7,10 +7,8 @@ import { selectQuestions, addQuestion, updateQuestion, deleteQuestion } from '..
 
 const HomePage = () => {
   const questions = useSelector(selectQuestions);
-  console.log('Questions in HomePage:', questions);
   const dispatch = useDispatch();
-
-  const userState = useSelector((state)=> state.user.user)
+  const userState = useSelector((state) => state.user.user)
 
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
@@ -163,15 +161,19 @@ const HomePage = () => {
       </div>
       <div className="question-grid fade-in">
         {currentQuestions.map((question) => (
-          <div className="question-card" key={question.id} style={{ backgroundColor: '#F08080' }}>
+          <div
+            className="question-card"
+            key={question.id}
+            onClick={() => handleSeeReply(question.id)}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="card-content" ref={dropdownRef}>
               <p>{question.title}</p>
               <div className={`dropdown ${activeDropdown === question.id ? 'active' : ''}`}>
-                <button onClick={() => toggleDropdown(question.id)}>...</button>
+                <button onClick={(e) => { e.stopPropagation(); toggleDropdown(question.id); }}>...</button>
                 <div className="dropdown-content">
-                  <button onClick={() => handleSeeReply(question.id)}>See Reply</button>
-                  <button onClick={() => handleUpdate(question.id)}>Update</button>
-                  <button onClick={() => handleDelete(question.id)}>Delete</button>
+                  <button onClick={(e) => { e.stopPropagation(); handleUpdate(question.id); }}>Update</button>
+                  <button onClick={(e) => { e.stopPropagation(); handleDelete(question.id); }}>Delete</button>
                 </div>
               </div>
             </div>

@@ -13,39 +13,40 @@ const initialQuestions = [
 
 export const questionSlice = createSlice({
   name: "questions",
-  initialState: {
-    questions: initialQuestions
-  },
+  initialState: initialQuestions,
   reducers: {
     addQuestion: (state, action) => {
-      state.questions.push(action.payload);
+      state.push(action.payload);
     },
     updateQuestion: (state, action) => {
-      const index = state.questions.findIndex(q => q.id === action.payload.id);
+      const index = state.findIndex(q => q.id === action.payload.id);
       if (index !== -1) {
-        state.questions[index] = action.payload;
+        state[index] = action.payload;
       }
     },
     deleteQuestion: (state, action) => {
-      state.questions = state.questions.filter(q => q.id !== action.payload);
+      return state.filter(q => q.id !== action.payload);
     },
     addReply: (state, action) => {
       const { questionId, reply } = action.payload;
-      const question = state.questions.find(q => q.id === questionId);
+      const question = state.find(q => q.id === questionId);
       if (question) {
+        if (!question.replies) {
+          question.replies = [];
+        }
         question.replies.push(reply);
       }
     },
     updateReply: (state, action) => {
       const { questionId, replyIndex, newReply } = action.payload;
-      const question = state.questions.find(q => q.id === questionId);
+      const question = state.find(q => q.id === questionId);
       if (question && question.replies[replyIndex]) {
         question.replies[replyIndex] = newReply;
       }
     },
     deleteReply: (state, action) => {
       const { questionId, replyIndex } = action.payload;
-      const question = state.questions.find(q => q.id === questionId);
+      const question = state.find(q => q.id === questionId);
       if (question) {
         question.replies.splice(replyIndex, 1);
       }
@@ -53,15 +54,15 @@ export const questionSlice = createSlice({
   },
 });
 
-export const { 
-  addQuestion, 
-  updateQuestion, 
-  deleteQuestion, 
-  addReply, 
-  updateReply, 
-  deleteReply 
+export const {
+  addQuestion,
+  updateQuestion,
+  deleteQuestion,
+  addReply,
+  updateReply,
+  deleteReply
 } = questionSlice.actions;
 
-export const selectQuestions = (state) => state.questions.questions;
+export const selectQuestions = (state) => state.questions;
 
 export default questionSlice.reducer;
