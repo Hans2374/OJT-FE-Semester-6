@@ -1,18 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import ReactPaginate from 'react-paginate';
 import './HomeAdmin.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectQuestions, deleteQuestion, addReply, updateReply, deleteReply } from '../../features/questionSlice';
 
 const AdminHomePage = () => {
-  const [questions, setQuestions] = useState([
-    { id: 1, title: 'What happens if we don’t finish?', replies: [] },
-    { id: 2, title: 'How long do we have for the test?', replies: [] },
-    { id: 3, title: 'Can you explain sexual and asexual reproduction?', replies: [] },
-    { id: 4, title: 'Deadline?', replies: [] },
-    { id: 5, title: 'Can you provide feedback on my recent performance?', replies: [] },
-    { id: 6, title: 'Are there any opportunities for me to take on more responsibilities?', replies: [] },
-    { id: 7, title: 'How will the recent changes impact my daily work?', replies: [] },
-    { id: 8, title: 'What steps can I take to advance my career here?', replies: [] },
-  ]);
+  const questions = useSelector(selectQuestions);
+  const dispatch = useDispatch();
 
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
@@ -21,20 +16,22 @@ const AdminHomePage = () => {
 
   const { register, handleSubmit, reset, setValue } = useForm();
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const questionsPerPage = 4;
 
-  const indexOfLastQuestion = currentPage * questionsPerPage;
+  const indexOfLastQuestion = (currentPage + 1) * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
   const currentQuestions = questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
 
-  const paginate = (pageNumber) => {
+  const totalPages = Math.ceil(questions.length / questionsPerPage);
+
+  const handlePageClick = (event) => {
     const grid = document.querySelector('.question-grid');
     grid.classList.remove('fade-in');
     grid.classList.add('fade-out');
 
     setTimeout(() => {
-      setCurrentPage(pageNumber);
+      setCurrentPage(event.selected);
       grid.classList.remove('fade-out');
       grid.classList.add('fade-in');
     }, 300);
@@ -47,13 +44,7 @@ const AdminHomePage = () => {
       <div className="popup">
         <h2>{questionToReply.title}</h2>
         <form onSubmit={handleSubmit((data) => {
-          const updatedQuestions = questions.map(q => {
-            if (q.id === id) {
-              return { ...q, replies: [...q.replies, data.replyContent] };
-            }
-            return q;
-          });
-          setQuestions(updatedQuestions);
+          dispatch(addReply({ questionId: id, reply: data.replyContent }));
           setShowPopup(false);
         })}>
           <textarea
@@ -71,20 +62,12 @@ const AdminHomePage = () => {
   const handleEditReply = (questionId, replyIndex) => {
     const questionToEdit = questions.find(q => q.id === questionId);
     const replyToEdit = questionToEdit.replies[replyIndex];
-    
+
     setPopupContent(
       <div className="popup">
         <h2>Edit Reply</h2>
         <form onSubmit={handleSubmit((data) => {
-          const updatedQuestions = questions.map(q => {
-            if (q.id === questionId) {
-              const updatedReplies = [...q.replies];
-              updatedReplies[replyIndex] = data.editedReply;
-              return { ...q, replies: updatedReplies };
-            }
-            return q;
-          });
-          setQuestions(updatedQuestions);
+          dispatch(updateReply({ questionId, replyIndex, newReply: data.editedReply }));
           setShowPopup(false);
         })}>
           <textarea
@@ -98,21 +81,14 @@ const AdminHomePage = () => {
     );
     setShowPopup(true);
   };
-  
+
   const handleDeleteReply = (questionId, replyIndex) => {
     setPopupContent(
       <div className="popup">
         <h2>Delete Reply</h2>
         <p>Are you sure you want to delete this reply?</p>
         <button onClick={() => {
-          const updatedQuestions = questions.map(q => {
-            if (q.id === questionId) {
-              const updatedReplies = q.replies.filter((_, index) => index !== replyIndex);
-              return { ...q, replies: updatedReplies };
-            }
-            return q;
-          });
-          setQuestions(updatedQuestions);
+          dispatch(deleteReply({ questionId, replyIndex }));
           setShowPopup(false);
         }}>Delete</button>
         <button onClick={() => setShowPopup(false)}>Cancel</button>
@@ -154,7 +130,7 @@ const AdminHomePage = () => {
         <button
           className="delete-button"
           onClick={() => {
-            setQuestions(questions.filter(q => q.id !== id));
+            dispatch(deleteQuestion(id));
             setShowPopup(false);
           }}
         >
@@ -210,17 +186,17 @@ const AdminHomePage = () => {
         ))}
       </div>
 
-      <div className="pagination">
-        {Array.from({ length: Math.ceil(questions.length / questionsPerPage) }, (_, index) => (
-          <button
-            key={index + 1}
-            onClick={() => paginate(index + 1)}
-            className={currentPage === index + 1 ? 'active' : ''}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
+      <ReactPaginate
+        previousLabel={'<'}
+        nextLabel={'>'}
+        breakLabel={'...'}
+        pageCount={totalPages}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={2}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination'}
+        activeClassName={'active'}
+      />
 
       {showPopup && <div className="overlay">{popupContent}</div>}
     </div>
