@@ -10,6 +10,8 @@ const HomePage = () => {
   console.log('Questions in HomePage:', questions);
   const dispatch = useDispatch();
 
+  const userState = useSelector((state)=> state.user.user)
+
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -25,6 +27,8 @@ const HomePage = () => {
   const currentQuestions = questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
 
   const totalPages = Math.ceil(questions.length / questionsPerPage);
+
+  console.log("AAA", userState)
 
   const handlePageClick = (event) => {
     const grid = document.querySelector('.question-grid');

@@ -1,7 +1,7 @@
 // LoginPage.js
 import React, { useState } from "react";
 import "./Login.css";
-import { toast } from "react-toastify";
+
 import { useDispatch } from "react-redux";
 import { login } from "../../features/userSlice";
 
@@ -9,12 +9,12 @@ const Login = () => {
   const [username,setUsername] = useState("");
   const [password,setPassword] = useState("");
 
-  const dispacth = useDispatch();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispacth(
+    dispatch(
       login({
       name:username,
       password:password,
