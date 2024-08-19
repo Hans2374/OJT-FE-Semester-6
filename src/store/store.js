@@ -3,6 +3,7 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 import { thunk } from "redux-thunk";
+import questionReducer from '../features/questionSlice';
 
 const persistConfig = {
   key: 'root',
@@ -11,6 +12,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: userReducer,
+  questions: questionReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
