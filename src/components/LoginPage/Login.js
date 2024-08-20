@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { login } from "../../features/userSlice";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { UserOutlined,LockOutlined } from "@ant-design/icons";
+
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -86,6 +88,7 @@ const Login = () => {
               required
               placeholder="Username"
             />
+            <UserOutlined className="icon"/>
           </div>
 
           <label>PASSWORD</label>
@@ -98,6 +101,7 @@ const Login = () => {
               required
               placeholder="Password"
             />
+            <LockOutlined className="icon"/>
           </div>
 
           <button type="submit" className="login-btn">
