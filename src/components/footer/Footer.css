@@ -94,9 +94,18 @@ hr {
     font-size: 44px;
     line-height: 50px;
   }
+
+  .footer {
+    position: relative; /* Thay đổi từ fixed thành relative */
+  }
 }
 
 @media screen and (max-width: 550px) {
+  .footer {
+    position: relative; /* Thay đổi từ fixed thành relative */
+    bottom: auto; /* Bỏ thuộc tính bottom */
+  }
+
   .sb__footer-heading h1 {
     font-size: 34px;
     line-height: 42px;

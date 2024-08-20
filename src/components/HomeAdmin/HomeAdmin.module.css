@@ -3,7 +3,7 @@
 }
 
 .container h1 {
-  color: #CDA4C6;
+  color: white;
 }
 
 .question-grid {
@@ -109,21 +109,25 @@
 }
 
 .popup {
-  width: 600px;
-  overflow-y: auto;
+  background: white;
   padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 500px;
+  margin-bottom: 50px;
 }
 
 .popup textarea {
-  width: 450px;
+  width: 400px;
   margin-top: 20px;
   margin-bottom: 10px;
   height: 30px;
-  padding: 5px;
+  padding: 7px;
   resize: none;
-  /* Disable manual resizing */
+  overflow-y: hidden;
+  border-radius: 20px;
+  padding-left: 30px;
 }
-
 
 .popup button {
   padding: 10px 20px;
@@ -151,20 +155,39 @@
 .pagination {
   display: flex;
   justify-content: center;
+  padding: 20px 0;
+  list-style: none;
+  margin: 0;
   margin-top: 20px;
 }
 
-.pagination button {
+.pagination li {
   margin: 0 5px;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  background-color: #f8f8f8;
   cursor: pointer;
 }
 
-.pagination button.active {
-  background-color: #007bff;
+.pagination li a {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  color: #101936;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.pagination li a:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination li.active a {
+  background-color: #101936;
   color: white;
+  border-color: #101936;
+}
+
+.pagination li.disabled a {
+  color: #ddd;
+  pointer-events: none;
 }
 
 .header {
@@ -187,6 +210,11 @@
 
 .header h1 {
   margin: 0;
+}
+
+.reply-list{
+  overflow-y: auto;
+  height: 250px;
 }
 
 .reply-row {
@@ -220,4 +248,57 @@
 
 .reply-actions button:hover {
   background-color: #0056b3;
+}
+
+.reply-input-container input{
+  width: 365px;
+  padding: 7px;
+  resize: none;
+  overflow-y: hidden;
+  border-radius: 20px;
+  padding-left: 30px;
+}
+
+@media screen and (max-width: 1370px) {
+  .question-grid {
+    grid-template-columns: 1fr; /* Chuyển thành 1 cột */
+    gap: 15px; /* Giảm khoảng cách giữa các card nếu cần */
+    justify-items: center;
+  }
+
+  .question-card {
+    padding: 10px;
+    width: 90%; /* Giảm padding nếu cần */
+  }
+
+  .popup {
+    width: 90%; /* Giảm chiều rộng của popup */
+    max-width: 400px; /* Đặt chiều rộng tối đa */
+    margin-bottom: 20px; /* Giảm margin bottom */
+  }
+
+  .popup textarea {
+    width: 90%; /* Giảm chiều rộng của textarea */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .reply-input-container input {
+    width: 90%; /* Giảm chiều rộng của input */
+    padding-left: 15px; /* Giảm padding left */
+  }
+
+  .header {
+    flex-direction: column; /* Xếp các phần tử trong header thành cột */
+    align-items: center;
+  }
+
+  .header h1{
+    color: white;
+    font-size: 160%;
+  }
+
+  .pagination li a {
+    padding: 6px 10px; /* Giảm kích thước của các nút phân trang */
+  }
 }

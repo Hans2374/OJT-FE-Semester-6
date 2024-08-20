@@ -1,0 +1,46 @@
+/* Thêm vào cuối file HomeAdmin.css
+
+@media screen and (max-width: 768px) {
+    .home-footer {
+      display: none;
+    }
+  } */
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.content {
+  margin-top: 170px;
+  flex: 1 0 auto;
+}
+
+.footer {
+  height: 60px;
+  /* Điều chỉnh chiều cao của footer */
+}
+
+@media (max-width: 768px) {
+  .home {
+    display: block;
+    min-height: 100vh;
+  }
+
+  .content {
+    margin-top: 110px;
+    padding-bottom: 20px; /* Thêm padding dưới để tránh nội dung bị che khuất bởi footer */
+  }
+
+  .footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+}

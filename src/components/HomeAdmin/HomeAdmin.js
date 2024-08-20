@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import ReactPaginate from 'react-paginate';
-import './HomeAdmin.css';
+import styles from './HomeAdmin.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectQuestions, deleteQuestion, addReply, updateReply, deleteReply } from '../../features/questionSlice';
 
@@ -14,7 +14,7 @@ const AdminHomePage = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const dropdownRef = useRef(null);
 
-  const { register, handleSubmit, reset, setValue } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   const [currentPage, setCurrentPage] = useState(0);
   const questionsPerPage = 4;
@@ -26,109 +26,114 @@ const AdminHomePage = () => {
   const totalPages = Math.ceil(questions.length / questionsPerPage);
 
   const handlePageClick = (event) => {
-    const grid = document.querySelector('.question-grid');
-    grid.classList.remove('fade-in');
-    grid.classList.add('fade-out');
+    const grid = document.querySelector(`.${styles['question-grid']}`);
+    grid.classList.remove(styles['fade-in']);
+    grid.classList.add(styles['fade-out']);
 
     setTimeout(() => {
       setCurrentPage(event.selected);
-      grid.classList.remove('fade-out');
-      grid.classList.add('fade-in');
+      grid.classList.remove(styles['fade-out']);
+      grid.classList.add(styles['fade-in']);
     }, 300);
   };
 
-  const handleReply = (id) => {
-    const questionToReply = questions.find(q => q.id === id);
-    setValue('replyContent', '');
-    setPopupContent(
-      <div className="popup">
-        <h2>{questionToReply.title}</h2>
-        <form onSubmit={handleSubmit((data) => {
-          dispatch(addReply({ questionId: id, reply: data.replyContent }));
-          setShowPopup(false);
-        })}>
-          <textarea
-            {...register('replyContent', { required: true })}
-            placeholder="Enter your reply"
-          ></textarea>
-          <button type="submit">Post Reply</button>
-          <button type="button" onClick={() => setShowPopup(false)}>Cancel</button>
-        </form>
-      </div>
-    );
-    setShowPopup(true);
+  const handleAddReply = (questionId, data) => {
+    dispatch(addReply({ questionId, reply: data.newReply }));
+    setValue('newReply', '');
+    // const updatedQuestion = questions.find(q => q.id === questionId);
+    // setPopupContent(createPopupContent(updatedQuestion));
   };
 
-  const handleEditReply = (questionId, replyIndex) => {
+  const createPopupContentRef = useRef(null);
+
+  const handleEditReply = useCallback((questionId, replyIndex) => {
     const questionToEdit = questions.find(q => q.id === questionId);
     const replyToEdit = questionToEdit.replies[replyIndex];
 
     setPopupContent(
-      <div className="popup">
+      <div className={styles.popup}>
         <h2>Edit Reply</h2>
         <form onSubmit={handleSubmit((data) => {
           dispatch(updateReply({ questionId, replyIndex, newReply: data.editedReply }));
-          setShowPopup(false);
+          const updatedQuestion = questions.find(q => q.id === questionId);
+          setPopupContent(createPopupContent(updatedQuestion));
         })}>
           <textarea
-            {...register('editedReply', { required: true })}
+            {...register('editedReply', {
+              required: true,
+              value: replyToEdit
+            })}
             defaultValue={replyToEdit}
+            className={styles.textarea}
           ></textarea>
-          <button type="submit">Save Changes</button>
-          <button type="button" onClick={() => setShowPopup(false)}>Cancel</button>
+          <button type="submit" className={styles['save-changes-button']}>Save Changes</button>
+          <button type="button" onClick={() => setPopupContent(createPopupContentRef.current(questionToEdit))} className={styles['cancel-button']}>Cancel</button>
         </form>
       </div>
     );
-    setShowPopup(true);
-  };
+  }, [questions, styles, register, handleSubmit, dispatch]);
 
-  const handleDeleteReply = (questionId, replyIndex) => {
+  const handleDeleteReply = useCallback((questionId, replyIndex) => {
     setPopupContent(
-      <div className="popup">
+      <div className={styles.popup}>
         <h2>Delete Reply</h2>
         <p>Are you sure you want to delete this reply?</p>
         <button onClick={() => {
           dispatch(deleteReply({ questionId, replyIndex }));
-          setShowPopup(false);
-        }}>Delete</button>
-        <button onClick={() => setShowPopup(false)}>Cancel</button>
-      </div>
+          const updatedQuestion = questions.find(q => q.id === questionId);
+          setPopupContent(createPopupContent(updatedQuestion));
+        }} className={styles['delete-confirm-button']}>Delete</button>
+        <button onClick={() => {
+          const currentQuestion = questions.find(q => q.id === questionId);
+          setPopupContent(createPopupContent(currentQuestion));
+        }} className={styles['cancel-button']}>Cancel</button></div>
     );
-    setShowPopup(true);
-  };
+  }, [dispatch, questions, styles]);
+
+  const createPopupContent = useCallback((question) => (
+    <div className={styles.popup}>
+      <h2>{question.title}</h2>
+      {question.replies.length > 0 ? (
+        <div className={styles['reply-list']}>
+          {question.replies.map((reply, index) => (
+            <div key={index} className={styles['reply-row']}>
+              <p>{reply}</p>
+              <div className={styles['reply-actions']}>
+                <button className={styles['edit-button']} onClick={() => handleEditReply(question.id, index)}>Edit</button>
+                <button className={styles['deleteReply-button']} onClick={() => handleDeleteReply(question.id, index)}>Delete</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>There are no replies yet.</p>
+      )}
+      <div className={styles['reply-input-container']}>
+        <input
+          type="text"
+          placeholder="Enter your reply"
+          {...register('newReply', { required: true })}
+        />
+        <button className={styles['reply-button']} onClick={handleSubmit((data) => handleAddReply(question.id, data))}>Reply</button>
+      </div>
+      <button className={styles['close-button']} onClick={() => setShowPopup(false)}>Close</button>
+    </div>
+  ), [styles, register, handleSubmit, handleAddReply, handleEditReply, handleDeleteReply, setShowPopup]);
+
+  createPopupContentRef.current = createPopupContent;
 
   const handleSeeReply = (id) => {
     const questionToSeeReply = questions.find(q => q.id === id);
-    setPopupContent(
-      <div className="popup">
-        <h2>Replies for: {questionToSeeReply.title}</h2>
-        {questionToSeeReply.replies.length > 0 ? (
-          <div className="reply-list">
-            {questionToSeeReply.replies.map((reply, index) => (
-              <div key={index} className="reply-row">
-                <p>{reply}</p>
-                <div className="reply-actions">
-                  <button onClick={() => handleEditReply(id, index)}>Edit</button>
-                  <button onClick={() => handleDeleteReply(id, index)}>Delete</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p>There are no replies yet.</p>
-        )}
-        <button onClick={() => setShowPopup(false)}>Close</button>
-      </div>
-    );
+    setPopupContent(createPopupContent(questionToSeeReply));
     setShowPopup(true);
   };
 
   const handleDelete = (id) => {
     setPopupContent(
-      <div className="popup">
+      <div className={styles.popup}>
         <h2>Do you want to delete this question?</h2>
         <button
-          className="delete-button"
+          className={styles['delete-button']}
           onClick={() => {
             dispatch(deleteQuestion(id));
             setShowPopup(false);
@@ -136,7 +141,7 @@ const AdminHomePage = () => {
         >
           Delete
         </button>
-        <button onClick={() => setShowPopup(false)}>Cancel</button>
+        <button onClick={() => setShowPopup(false)} className={styles['cancel-button']}>Cancel</button>
       </div>
     );
     setShowPopup(true);
@@ -150,11 +155,11 @@ const AdminHomePage = () => {
     }
   };
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = useCallback((event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setActiveDropdown(null);
     }
-  };
+  }, []);
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true);
@@ -163,25 +168,34 @@ const AdminHomePage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (showPopup && popupContent) {
+      const currentQuestionId = popupContent.props.children[0].props.children;
+      const updatedQuestion = questions.find(q => q.id === currentQuestionId);
+      if (updatedQuestion) {
+        setPopupContent(createPopupContent(updatedQuestion));
+      }
+    }
+  }, [questions, showPopup, popupContent, createPopupContent]);
+
   return (
-    <div className="container">
-      <div className="header">
+    <div className={styles.container}>
+      <div className={styles.header}>
         <h1>Questions Admin Panel</h1>
       </div>
-      <div className="question-grid">
+      <div className={styles['question-grid']}>
         {currentQuestions.map((question) => (
           <div
-            className="question-card"
+            className={styles['question-card']}
             key={question.id}
             onClick={() => handleSeeReply(question.id)}
             style={{ cursor: 'pointer' }}
           >
-            <div className="card-content" ref={dropdownRef}>
+            <div className={styles['card-content']} ref={dropdownRef}>
               <p>{question.title}</p>
-              <div className={`dropdown ${activeDropdown === question.id ? 'active' : ''}`}>
+              <div className={`${styles.dropdown} ${activeDropdown === question.id ? styles.active : ''}`}>
                 <button onClick={(e) => { e.stopPropagation(); toggleDropdown(question.id); }}>...</button>
-                <div className="dropdown-content">
-                  <button onClick={(e) => { e.stopPropagation(); handleReply(question.id); }}>Reply</button>
+                <div className={styles['dropdown-content']}>
                   <button onClick={(e) => { e.stopPropagation(); handleDelete(question.id); }}>Delete</button>
                 </div>
               </div>
@@ -198,11 +212,11 @@ const AdminHomePage = () => {
         marginPagesDisplayed={2}
         pageRangeDisplayed={2}
         onPageChange={handlePageClick}
-        containerClassName={'pagination'}
-        activeClassName={'active'}
+        containerClassName={styles.pagination}
+        activeClassName={styles.active}
       />
 
-      {showPopup && <div className="overlay">{popupContent}</div>}
+      {showPopup && <div className={styles.overlay}>{popupContent}</div>}
     </div>
   );
 };
