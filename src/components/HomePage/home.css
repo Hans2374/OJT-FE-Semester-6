@@ -1,11 +1,41 @@
+/* Phần container chính */
 .container {
   padding-bottom: 10px;
 }
 
-.container h1 {
-  color: #CDA4C6;
+/* Phần header */
+.header {
+  display: flex;
+  flex-direction: column; /* Đặt tiêu đề và nút thành cột dọc */
+  align-items: flex-start; /* Căn chỉnh các phần tử về phía lề trái */
+  position: relative;
 }
 
+/* Tiêu đề h1 */
+.header h1 {
+  color: #CDA4C6;
+  margin: 0; /* Loại bỏ margin mặc định để tiêu đề không bị dịch vào giữa */
+  text-align: left; /* Căn chỉnh văn bản về phía lề trái */
+  width: 100%; /* Đảm bảo tiêu đề chiếm toàn bộ chiều rộng của container header */
+  box-sizing: border-box; /* Đảm bảo padding và border không làm tăng tổng chiều rộng */
+}
+
+/* Nút thêm câu hỏi */
+.add-question-button {
+  background-color: #FA6D73;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 20px; /* Khoảng cách giữa nút và tiêu đề */
+}
+
+.add-question-button:hover {
+  background-color: #333333;
+}
+
+/* Lưới câu hỏi */
 .question-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -24,6 +54,7 @@
   transform: scale(1);
 }
 
+/* Thẻ câu hỏi */
 .question-card {
   background-color: #101936 !important;
   border-radius: 10px;
@@ -39,12 +70,14 @@
   margin: 0;
 }
 
+/* Nội dung thẻ câu hỏi */
 .card-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Dropdown */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -91,25 +124,7 @@
   background-color: #edc7ed;
 }
 
-.header {
-  text-align: center;
-  padding-bottom: 10px;
-  animation: fade-in-out 2s infinite;
-}
-
-.add-question-button {
-  background-color: #FA6D73;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-.add-question-button:hover {
-  background-color: #333333;
-}
-
+/* Phần phân trang */
 .pagination {
   display: flex;
   justify-content: center;
@@ -147,6 +162,7 @@
   pointer-events: none;
 }
 
+/* Phần overlay và popup */
 .overlay {
   position: fixed;
   top: 0;
@@ -190,4 +206,14 @@
   background-color: #FF0000;
   color: white;
   margin-right: 20px;
+}
+
+/* Animation */
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
