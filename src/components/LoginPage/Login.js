@@ -147,7 +147,7 @@ const Login = () => {
       <label>PASSWORD</label>
       <div className="input-container">
         <input
-          autocomplete="off"
+          autoComplete="off"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           type="password"
