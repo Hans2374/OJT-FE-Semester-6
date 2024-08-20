@@ -40,7 +40,9 @@ const Navbar = () => {
       <div className="container">
         <nav className="nav">
           <img src={logo} alt="Logo" />
+
           <h1>Welcome <span>{user.name}</span></h1>
+          
           <ul className={collapse}>
             {navItems.map((item) =>
               item.label === "Logout" ? (
