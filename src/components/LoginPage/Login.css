@@ -94,6 +94,7 @@ body {
 	justify-content: center;
 	min-height: 7rem;
 	border: 2px solid rgb(156, 160, 172);
+	border-radius: 5px;
 	background-color: #fff;
 	box-shadow: 0 5px 10px rgba(#000, 0.1);
 	transition: 0.15s ease;
@@ -121,7 +122,7 @@ body {
 	}
 
 	&:hover {
-		border-color: rgb(20, 228, 112 );;
+		border-color: rgb(20, 228, 112 );
 		&:before {
 			transform: scale(1);
 			opacity: 1;
@@ -154,6 +155,10 @@ body {
 	margin: 10px 10px 10px 0 ;
 }
 
+.input-container input:hover {
+	border-color: rgb(20, 228, 112);
+}
+
 .input-container input:focus {
 	outline: none !important;
 	border:1px solid rgb(20, 228, 112 );
@@ -170,6 +175,14 @@ body {
   font-weight: 700;
   color: #fff;
   font-size: 0.9rem;
+	transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: rgb(20, 228, 112 );
+  cursor: pointer;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+	transform: scale(1.05); 
 }
 
 label {
