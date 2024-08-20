@@ -4,7 +4,7 @@ import logo from "../../assets/0ff12dfae735436b1a24.png";
 import { getTopNav } from "../../data/navbars";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout,selectUser } from "../../features/userSlice"; // Chỉnh lại đường dẫn tùy vào cấu trúc thư mục của bạn
+import { logout, selectUser } from "../../features/userSlice";
 
 const Navbar = () => {
   const [navItems, setNavItems] = useState([]);
@@ -20,13 +20,14 @@ const Navbar = () => {
 
   const onToggle = () => {
     console.log("Toggler clicked");
-    collapse === "nav__menu"
-      ? setCollapse("nav__menu nav__collapse")
-      : setCollapse("nav__menu");
 
-    toggleIcon === "toggler__icon"
-      ? setToggleIcon("toggler__icon toggle")
-      : setToggleIcon("toggler__icon");
+    setCollapse((prevCollapse) =>
+      prevCollapse === "nav__menu" ? "nav__menu nav__collapse" : "nav__menu"
+    );
+
+    setToggleIcon((prevIcon) =>
+      prevIcon === "toggler__icon" ? "toggler__icon toggle" : "toggler__icon"
+    );
   };
 
   const handleLogout = (e) => {
@@ -39,8 +40,10 @@ const Navbar = () => {
     <div className="nav__wrapper">
       <div className="container">
         <nav className="nav">
-          <img src={logo} alt="Logo" />
-          <h1>Welcome <span>{user.name}</span></h1>
+          <img src={logo} alt="Logo" className="nav__logo" />
+          <h1 className="nav__title">
+            Welcome <span>{user.name}</span>
+          </h1>
           <ul className={collapse}>
             {navItems.map((item) =>
               item.label === "Logout" ? (
@@ -61,7 +64,7 @@ const Navbar = () => {
               )
             )}
           </ul>
-          
+
           <div className={toggleIcon} onClick={onToggle}>
             <div className="line__1"></div>
             <div className="line__2"></div>

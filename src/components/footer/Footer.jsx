@@ -5,7 +5,7 @@ import twitter from "../../assets/twitter.png";
 import github from "../../assets/github.png";
 import igs from "../../assets/instagram.png";
 
-function Footer() {
+const Footer = () => {
   return (
     <div className="footer">
       <div className="sb__footer section__padding">
@@ -70,9 +70,7 @@ function Footer() {
             </div>
           </div>
         </div>
-
         <hr />
-
         <div className="sb__footer-below">
           <div className="sb__footer-copyright">
             <p>@{new Date().getFullYear()} CodeInn. All right reserved</p>
@@ -95,6 +93,6 @@ function Footer() {
       </div>
     </div>
   );
-}
+};
 
 export default Footer;
