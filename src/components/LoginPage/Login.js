@@ -1,74 +1,90 @@
-// LoginPage.js
 import React, { useState } from "react";
-import "./Login.css";
-
 import { useDispatch } from "react-redux";
 import { login } from "../../features/userSlice";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
-  const [username,setUsername] = useState("");
-  const [password,setPassword] = useState("");
-  const [roles, setRoles] = useState([]);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [roles, setRoles] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Use useNavigate hook for routing
 
   const checkBoxInputs = [
-    {
-      id: 1,
-      label: "Admin",
-      value: "admin"
-    },
-    {
-      id: 2,
-      label: "Intern",
-      value: "intern"
-    }
+    { id: 1, label: "Admin", value: "admin" },
+    { id: 2, label: "Intern", value: "intern" }
   ];
 
-  const [checkedvalue, setCheckedValue] = useState();
+  const [checkedValue, setCheckedValue] = useState();
 
   const handleCheckboxChange = (e) => {
     if (e.target.checked) {
       setCheckedValue(e.target.value);
-      if (!roles.includes(e.target.value)) {
-        setRoles([...roles, e.target.value]);
-      }
+      setRoles(e.target.value);
+    } else {
+      setCheckedValue(null);
+      setRoles("");
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(
-      login({
-      name:username,
-      password:password,
-      role: roles,
-      loggedIn: true,
-      })
-    );
+    dispatch(login({ name: username, password, role: roles, loggedIn: true }));
+
+    // Redirect based on role
+    if (roles === "admin") {
+      navigate("/admin-home"); // Route to AdminHomePage
+    } else if (roles === "intern") {
+      navigate("/home"); // Route to HomePage
+    }
   };
 
   return (
     <div className="wrapper">
-      <form
-        className="form-group custom-form"
-        onSubmit={(e) => handleSubmit(e)}
-      >
-        <h1>Login</h1>
-        <div className="input-box">
+      <form className="form-group custom-form" onSubmit={handleSubmit}>
+        <h1 className="underline">Sign In</h1>
+        <div className="checkbox-group">
+          {checkBoxInputs.map((role, index) => (
+            <div className="checkbox" key={index}>
+              <label className="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  className="checkbox-input"
+                  id={role.value}
+                  name="roles"
+                  value={role.value}
+                  checked={role.value === checkedValue}
+                  onChange={handleCheckboxChange}
+                />
+                <span className="checkbox-tile">
+                  <span className="checkbox-icon">
+                    {/* SVG Icon */}
+                  </span>
+                  <span className="checkbox-label">{role.label}</span>
+                </span>
+              </label>
+            </div>
+          ))}
+        </div>
+
+        <label>USERNAME</label>
+        <div className="input-container">
           <input
-            autocomplete="off"
+            autoComplete="off"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            type="name"
+            type="text"
             required
             placeholder="Username"
           />
         </div>
 
-        <div className="input-box">
+        <label>PASSWORD</label>
+        <div className="input-container">
           <input
-            autocomplete="off"
+            autoComplete="off"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
@@ -77,29 +93,8 @@ const Login = () => {
           />
         </div>
 
-        <div>
-          <div className="change-role">Choose user roles:</div>
-          <ul>
-            {checkBoxInputs.map((role, index) => (
-              <li key={index}>
-                <input
-                  type="checkbox"
-                  id={role.value}
-                  name="roles"
-                  value={role.value}
-                  checked={role.value === checkedvalue}
-                  onChange={handleCheckboxChange}         
-                />
-                <label htmlFor={role.value} className="text-sm ml-1">
-                  {role.label}
-                </label>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <button type="submit" className="btn btn-primary">
-          LOGIN
+          Login
         </button>
       </form>
     </div>

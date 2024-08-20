@@ -1,25 +1,32 @@
-// Import các thư viện cần thiết
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-// Import các component mà bạn muốn điều hướng tới
+// routes.js (hoặc AppRoutes.js tùy theo tên bạn sử dụng)
+import React, { useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import HomePage from './screen/HomeScreen/Home';
 import LoginPage from './screen/LoginScreen/Login';
 import HomeAdmin from './screen/HomeAdminScreen/HomeAdmin';
+import { selectUser } from './features/userSlice';
 
-
-// Định nghĩa các route trong ứng dụng
 const AppRoutes = () => {
+    const navigate = useNavigate();
+    const user = useSelector(selectUser);
+
+    useEffect(() => {
+        if (user) {
+            if (user.role === 'admin') {
+                navigate('/homeadmin');
+            } else if (user.role === 'intern') {
+                navigate('/home');
+            }
+        }
+    }, [user, navigate]);
+
     return (
-      <div>
-        <Router>
-          <Routes>
-            <Route path="/home" element={<HomePage />} />
+        <Routes>
             <Route path="/" element={<LoginPage />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/homeadmin" element={<HomeAdmin />} />
-          </Routes>
-        </Router>
-      </div>
+        </Routes>
     );
 };
 

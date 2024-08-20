@@ -40,10 +40,10 @@ const Navbar = () => {
     <div className="nav__wrapper">
       <div className="container">
         <nav className="nav">
-          <img src={logo} alt="Logo" className="nav__logo" />
-          <h1 className="nav__title">
-            Welcome <span>{user.name}</span>
-          </h1>
+          <img src={logo} alt="Logo" />
+
+          <h1>Welcome <span>{user.name}</span></h1>
+          
           <ul className={collapse}>
             {navItems.map((item) =>
               item.label === "Logout" ? (

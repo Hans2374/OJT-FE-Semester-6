@@ -1,3 +1,4 @@
+/* Phần container chính */
 .container {
   padding-bottom: 50px;
 }
@@ -26,6 +27,7 @@
   transform: scale(1);
 }
 
+/* Thẻ câu hỏi */
 .question-card {
   background-color: #101936 !important;
   border-radius: 10px;
@@ -41,12 +43,14 @@
   margin: 0;
 }
 
+/* Nội dung thẻ câu hỏi */
 .card-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Dropdown */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -149,6 +153,7 @@
   pointer-events: none;
 }
 
+/* Phần overlay và popup */
 .overlay {
   position: fixed;
   top: 0;
@@ -192,4 +197,15 @@
   background-color: #ff0000;
   color: white;
   margin-right: 20px;
+}
+
+/* Animation */
+@keyframes fade-in-out {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
