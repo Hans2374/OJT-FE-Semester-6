@@ -55,14 +55,58 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(login({ name: username, password, role: roles, loggedIn: true }));
-
-    // Redirect based on role
-    if (roles === "admin") {
-      navigate("/admin-home"); // Route to AdminHomePage
-    } else if (roles === "intern") {
-      navigate("/home"); // Route to HomePage
+    if (!roles) {
+      alert("Vui lòng chọn vai trò của bạn.");
+      return;
     }
+
+    const isValidUser = checkUserCredentials(username, password, roles);
+
+    if (isValidUser) {
+      dispatch(login({ name: username, password, role: roles, loggedIn: true }));
+
+      if (roles === "admin") {
+        navigate("/admin-home"); 
+      } else if (roles === "intern") {
+        navigate("/home"); 
+      }
+    } else {
+      alert("Tên đăng nhập hoặc mật khẩu không chính xác.");
+    }
+  };
+
+  // Hàm kiểm tra thông tin đăng nhập
+  const checkUserCredentials = (username, password, roles) => {
+    // Dữ liệu người dùng giả lập
+    const users = {
+      "admin": {
+        "username": "admin",
+        "password": "admin123",
+        "role": "admin"
+      },
+      "intern": {
+        "username": "intern",
+        "password": "intern456",
+        "role": "intern"
+      }
+    };
+
+    const user = users[username.toLowerCase()]; 
+
+    if (user) {
+      // Kiểm tra mật khẩu
+      if (user.password === password) {
+        // Kiểm tra vai trò
+        if (user.role === roles) {
+          return true; 
+        } else {
+          alert("Bạn không có quyền truy cập.");
+          return false; 
+        }
+      } 
+    }
+
+    return false; 
   };
 
   return (
