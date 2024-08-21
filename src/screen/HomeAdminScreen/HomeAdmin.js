@@ -1,7 +1,6 @@
 import React from "react";
-// import { useMediaQuery } from "react-responsive";
 import Header from "../../components/header/Header";
-import Home from "../../components/HomeAdmin/HomeAdmin";
+import HomeAdmin from "../../components/HomeAdmin/HomeAdmin";
 import Footer from "../../components/footer/Footer";
 
 import styles from "./HomeAdmin.module.css";
@@ -10,12 +9,12 @@ function HomePage() {
   // const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
-    <div className={styles.home}>
+    <div className={styles.homeAdmin}>
       <header className={styles.header}>
         <Header />
       </header>
       <main className={styles.content}>
-        <Home />
+        <HomeAdmin />
       </main>
       {/* {!isMobile && <Footer />} */}
       <footer className={styles.footer}>

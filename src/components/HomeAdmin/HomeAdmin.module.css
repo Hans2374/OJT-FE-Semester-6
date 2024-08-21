@@ -275,6 +275,7 @@
     width: 90%; /* Giảm chiều rộng của popup */
     max-width: 400px; /* Đặt chiều rộng tối đa */
     margin-bottom: 20px; /* Giảm margin bottom */
+    margin-top: 100px;
   }
 
   .popup textarea {

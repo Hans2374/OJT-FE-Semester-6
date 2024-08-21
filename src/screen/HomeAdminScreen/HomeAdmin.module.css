@@ -1,11 +1,4 @@
-/* Thêm vào cuối file HomeAdmin.css
-
-@media screen and (max-width: 768px) {
-    .home-footer {
-      display: none;
-    }
-  } */
-.home {
+.homeAdmin {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -28,14 +21,15 @@
 }
 
 @media (max-width: 768px) {
-  .home {
+  .homeAdmin {
     display: block;
     min-height: 100vh;
   }
 
   .content {
     margin-top: 110px;
-    padding-bottom: 20px; /* Thêm padding dưới để tránh nội dung bị che khuất bởi footer */
+    padding-bottom: 100px;
+    padding-top: 100px; /* Thêm padding dưới để tránh nội dung bị che khuất bởi footer */
   }
 
   .footer {

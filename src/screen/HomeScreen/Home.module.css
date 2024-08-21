@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+.content {
+    margin-top: 110px;
+    padding-bottom: 100px; /* Thêm padding dưới để tránh nội dung bị che khuất bởi footer */
+  }
+}

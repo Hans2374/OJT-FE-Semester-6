@@ -169,6 +169,14 @@ const AdminHomePage = () => {
   }, []);
 
   useEffect(() => {
+    if (showPopup) {
+      document.body.style.overflow = 'hidden'; // Disable scrolling
+    } else {
+      document.body.style.overflow = 'auto'; // Enable scrolling
+    }
+  }, [showPopup]);
+
+  useEffect(() => {
     if (showPopup && popupContent) {
       const currentQuestionId = popupContent.props.children[0].props.children;
       const updatedQuestion = questions.find(q => q.id === currentQuestionId);

@@ -44,7 +44,7 @@ const HomePage = () => {
     const questionToSeeReply = questions.find(q => q.id === id);
     setPopupContent(
       <div className="popup">
-        <h2>Replies for: {questionToSeeReply.title}</h2>
+        <h2>{questionToSeeReply.title}</h2>
         {questionToSeeReply.replies.length > 0 ? (
           <div className="reply-list">
             {questionToSeeReply.replies.map((reply, index) => (
@@ -150,6 +150,14 @@ const HomePage = () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
   }, []);
+
+  useEffect(() => {
+    if (showPopup) {
+      document.body.style.overflow = 'hidden'; // Disable scrolling
+    } else {
+      document.body.style.overflow = 'auto'; // Enable scrolling
+    }
+  }, [showPopup]);
 
   return (
     <div className="container">
