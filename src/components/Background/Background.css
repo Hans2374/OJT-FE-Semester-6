@@ -23,7 +23,7 @@ section .row
   display: flex;
   padding: 10px 0;
   white-space: nowrap;
-  font-size: 64px;
+  font-size: 80px;
   transform: rotate(-30deg);
 }
 .i

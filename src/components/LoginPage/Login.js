@@ -4,6 +4,28 @@ import { login } from "../../features/userSlice";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { UserOutlined,LockOutlined } from "@ant-design/icons";
+import {
+  DiscordOutlined,
+  Html5Outlined,
+  TaobaoCircleOutlined,
+  TwitterOutlined,
+  YoutubeOutlined,
+  WechatOutlined,
+  GooglePlusOutlined,
+  InstagramOutlined,
+  XOutlined,
+  TikTokOutlined,
+  TwitchOutlined,
+  PythonOutlined,
+  DockerOutlined,
+  AmazonOutlined,
+  AntCloudOutlined,
+  AntDesignOutlined,
+  WhatsAppOutlined,
+  WeiboOutlined,
+  WindowsOutlined,
+  AndroidOutlined,
+} from "@ant-design/icons";
 
 
 const Login = () => {
@@ -44,6 +66,1186 @@ const Login = () => {
   };
 
   return (
+    <div>
+      <div className="background-image">
+        <section>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+
+            <div className="div-icon">
+              <DiscordOutlined className="i" />
+              <Html5Outlined className="i" />
+              <TaobaoCircleOutlined className="i" />
+              <TwitterOutlined className="i" />
+              <YoutubeOutlined className="i" />
+              <WechatOutlined className="i" />
+              <GooglePlusOutlined className="i" />
+              <InstagramOutlined className="i" />
+              <XOutlined className="i" />
+              <TikTokOutlined className="i" />
+              <TwitchOutlined className="i" />
+              <PythonOutlined className="i" />
+              <DockerOutlined className="i" />
+              <AmazonOutlined className="i" />
+              <AntCloudOutlined className="i" />
+              <AntDesignOutlined className="i" />
+              <WhatsAppOutlined className="i" />
+              <WeiboOutlined className="i" />
+              <WindowsOutlined className="i" />
+              <AndroidOutlined className="i" />
+            </div>
+          </div>
+        </section>
+      </div>
       <div className="wrapper">
         <form className="form-group custom-form" onSubmit={handleSubmit}>
           <h1 className="underline">Sign In</h1>
@@ -88,7 +1290,7 @@ const Login = () => {
               required
               placeholder="Username"
             />
-            <UserOutlined className="icon"/>
+            <UserOutlined className="icon" />
           </div>
 
           <label>PASSWORD</label>
@@ -101,7 +1303,7 @@ const Login = () => {
               required
               placeholder="Password"
             />
-            <LockOutlined className="icon"/>
+            <LockOutlined className="icon" />
           </div>
 
           <button type="submit" className="login-btn">
@@ -109,6 +1311,7 @@ const Login = () => {
           </button>
         </form>
       </div>
+    </div>
   );
 };
 

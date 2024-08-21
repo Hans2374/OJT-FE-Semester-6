@@ -9,8 +9,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+
+  background-image: url("./assets/istockphoto-172449774-612x612.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
 * {
   margin: 0;
   padding: 0;

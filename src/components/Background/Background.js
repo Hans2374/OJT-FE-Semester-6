@@ -1107,6 +1107,101 @@ const Background = () => {
           <AndroidOutlined className="i" />
         </div>
       </div>
+      <div className="row">
+        <div className="div-icon">
+          <DiscordOutlined className="i" />
+          <Html5Outlined className="i" />
+          <TaobaoCircleOutlined className="i" />
+          <TwitterOutlined className="i" />
+          <YoutubeOutlined className="i" />
+          <WechatOutlined className="i" />
+          <GooglePlusOutlined className="i" />
+          <InstagramOutlined className="i" />
+          <XOutlined className="i" />
+          <TikTokOutlined className="i" />
+          <TwitchOutlined className="i" />
+          <PythonOutlined className="i" />
+          <DockerOutlined className="i" />
+          <AmazonOutlined className="i" />
+          <AntCloudOutlined className="i" />
+          <AntDesignOutlined className="i" />
+          <WhatsAppOutlined className="i" />
+          <WeiboOutlined className="i" />
+          <WindowsOutlined className="i" />
+          <AndroidOutlined className="i" />
+        </div>
+
+        <div className="div-icon">
+          <DiscordOutlined className="i" />
+          <Html5Outlined className="i" />
+          <TaobaoCircleOutlined className="i" />
+          <TwitterOutlined className="i" />
+          <YoutubeOutlined className="i" />
+          <WechatOutlined className="i" />
+          <GooglePlusOutlined className="i" />
+          <InstagramOutlined className="i" />
+          <XOutlined className="i" />
+          <TikTokOutlined className="i" />
+          <TwitchOutlined className="i" />
+          <PythonOutlined className="i" />
+          <DockerOutlined className="i" />
+          <AmazonOutlined className="i" />
+          <AntCloudOutlined className="i" />
+          <AntDesignOutlined className="i" />
+          <WhatsAppOutlined className="i" />
+          <WeiboOutlined className="i" />
+          <WindowsOutlined className="i" />
+          <AndroidOutlined className="i" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="div-icon">
+          <DiscordOutlined className="i" />
+          <Html5Outlined className="i" />
+          <TaobaoCircleOutlined className="i" />
+          <TwitterOutlined className="i" />
+          <YoutubeOutlined className="i" />
+          <WechatOutlined className="i" />
+          <GooglePlusOutlined className="i" />
+          <InstagramOutlined className="i" />
+          <XOutlined className="i" />
+          <TikTokOutlined className="i" />
+          <TwitchOutlined className="i" />
+          <PythonOutlined className="i" />
+          <DockerOutlined className="i" />
+          <AmazonOutlined className="i" />
+          <AntCloudOutlined className="i" />
+          <AntDesignOutlined className="i" />
+          <WhatsAppOutlined className="i" />
+          <WeiboOutlined className="i" />
+          <WindowsOutlined className="i" />
+          <AndroidOutlined className="i" />
+        </div>
+
+        <div className="div-icon">
+          <DiscordOutlined className="i" />
+          <Html5Outlined className="i" />
+          <TaobaoCircleOutlined className="i" />
+          <TwitterOutlined className="i" />
+          <YoutubeOutlined className="i" />
+          <WechatOutlined className="i" />
+          <GooglePlusOutlined className="i" />
+          <InstagramOutlined className="i" />
+          <XOutlined className="i" />
+          <TikTokOutlined className="i" />
+          <TwitchOutlined className="i" />
+          <PythonOutlined className="i" />
+          <DockerOutlined className="i" />
+          <AmazonOutlined className="i" />
+          <AntCloudOutlined className="i" />
+          <AntDesignOutlined className="i" />
+          <WhatsAppOutlined className="i" />
+          <WeiboOutlined className="i" />
+          <WindowsOutlined className="i" />
+          <AndroidOutlined className="i" />
+        </div>
+
+      </div>
     </section>
   );
 };
