@@ -1,5 +1,6 @@
 .container {
   padding-bottom: 10px;
+  width: 1200px;
 }
 
 .container h1 {
@@ -262,6 +263,10 @@
 }
 
 @media screen and (max-width: 1370px) {
+  .container{
+    width: 97%;
+  }
+
   .question-grid {
     grid-template-columns: 1fr; /* Chuyển thành 1 cột */
     gap: 15px; /* Giảm khoảng cách giữa các card nếu cần */

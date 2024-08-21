@@ -1,6 +1,7 @@
 /* Phần container chính */
 .container {
   padding-bottom: 50px;
+  width: 1200px;
 }
 
 .container h1 {
@@ -225,6 +226,10 @@
 }
 
 @media screen and (max-width: 1370px) {
+  .container{
+    width: 97%;
+  }
+
   .question-grid {
     grid-template-columns: 1fr;
     /* Chuyển thành 1 cột */

@@ -14,7 +14,7 @@ const AdminHomePage = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const dropdownRef = useRef(null);
 
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, reset, setValue } = useForm();
 
   const [currentPage, setCurrentPage] = useState(0);
   const questionsPerPage = 4;
@@ -39,10 +39,18 @@ const AdminHomePage = () => {
 
   const handleAddReply = (questionId, data) => {
     dispatch(addReply({ questionId, reply: data.newReply }));
+
+    // Clear the input field after submitting the reply
     setValue('newReply', '');
-    // const updatedQuestion = questions.find(q => q.id === questionId);
-    // setPopupContent(createPopupContent(updatedQuestion));
+
+    // Find the updated question and update the pop-up content
+    const updatedQuestion = questions.find(q => q.id === questionId);
+    const updatedReplies = [...updatedQuestion.replies, data.newReply];
+
+    // Update the pop-up content to show the new reply immediately
+    setPopupContent(createPopupContent({ ...updatedQuestion, replies: updatedReplies }));
   };
+
 
   const createPopupContentRef = useRef(null);
 
@@ -50,28 +58,39 @@ const AdminHomePage = () => {
     const questionToEdit = questions.find(q => q.id === questionId);
     const replyToEdit = questionToEdit.replies[replyIndex];
 
+    // Set the default value of the textarea to the selected reply
+    setValue('editedReply', replyToEdit);
+
     setPopupContent(
       <div className={styles.popup}>
         <h2>Edit Reply</h2>
         <form onSubmit={handleSubmit((data) => {
           dispatch(updateReply({ questionId, replyIndex, newReply: data.editedReply }));
-          const updatedQuestion = questions.find(q => q.id === questionId);
+
+          // Immediately update the pop-up content after editing
+          const updatedQuestion = {
+            ...questionToEdit,
+            replies: questionToEdit.replies.map((reply, idx) =>
+              idx === replyIndex ? data.editedReply : reply
+            )
+          };
           setPopupContent(createPopupContent(updatedQuestion));
         })}>
           <textarea
-            {...register('editedReply', {
-              required: true,
-              value: replyToEdit
-            })}
-            defaultValue={replyToEdit}
+            {...register('editedReply', { required: true })}
+            defaultValue={replyToEdit}  // Correctly sets the textarea content
             className={styles.textarea}
           ></textarea>
           <button type="submit" className={styles['save-changes-button']}>Save Changes</button>
-          <button type="button" onClick={() => setPopupContent(createPopupContentRef.current(questionToEdit))} className={styles['cancel-button']}>Cancel</button>
+          <button type="button" onClick={() =>
+            setPopupContent(createPopupContentRef.current(questionToEdit))
+          } className={styles['cancel-button']}>Cancel</button>
         </form>
       </div>
     );
-  }, [questions, styles, register, handleSubmit, dispatch]);
+  }, [questions, styles, register, handleSubmit, dispatch, setValue]);
+
+
 
   const handleDeleteReply = useCallback((questionId, replyIndex) => {
     setPopupContent(
@@ -80,15 +99,19 @@ const AdminHomePage = () => {
         <p>Are you sure you want to delete this reply?</p>
         <button onClick={() => {
           dispatch(deleteReply({ questionId, replyIndex }));
-          const updatedQuestion = questions.find(q => q.id === questionId);
+
+          // Immediately update the pop-up content after deleting
+          const updatedQuestion = {
+            ...questions.find(q => q.id === questionId),
+            replies: questions.find(q => q.id === questionId).replies.filter((_, idx) => idx !== replyIndex)
+          };
           setPopupContent(createPopupContent(updatedQuestion));
         }} className={styles['delete-confirm-button']}>Delete</button>
-        <button onClick={() => {
-          const currentQuestion = questions.find(q => q.id === questionId);
-          setPopupContent(createPopupContent(currentQuestion));
-        }} className={styles['cancel-button']}>Cancel</button></div>
+        <button onClick={() => setPopupContent(createPopupContent(questions.find(q => q.id === questionId)))} className={styles['cancel-button']}>Cancel</button>
+      </div>
     );
   }, [dispatch, questions, styles]);
+
 
   const createPopupContent = useCallback((question) => (
     <div className={styles.popup}>
@@ -119,6 +142,7 @@ const AdminHomePage = () => {
       <button className={styles['close-button']} onClick={() => setShowPopup(false)}>Close</button>
     </div>
   ), [styles, register, handleSubmit, handleAddReply, handleEditReply, handleDeleteReply, setShowPopup]);
+
 
   createPopupContentRef.current = createPopupContent;
 
