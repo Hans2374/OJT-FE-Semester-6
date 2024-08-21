@@ -26,8 +26,6 @@ const HomePage = () => {
 
   const totalPages = Math.ceil(questions.length / questionsPerPage);
 
-  console.log("AAA", userState)
-
   const handlePageClick = (event) => {
     const grid = document.querySelector('.question-grid');
     grid.classList.remove('fade-in');
