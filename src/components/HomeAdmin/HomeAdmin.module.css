@@ -223,8 +223,10 @@
   align-items: center;
   border: 1px solid #ccc;
   margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 50px;
   background-color: #f8f8f8;
+  margin-right: 5px;
 }
 
 .reply-row p {
